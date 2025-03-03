@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Not So Interactive Web Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Not So Interactive Web Page</h1>
+        <p>This is my first web project created with the help of Claude.</p>
+        
+        <div class="card">
+            <h2>Color Changer</h2>
+            <button id="changeColorBtn">Change Background Color</button>
+        </div>
+        
+        <div class="card">
+            <h2>Counter</h2>
+            <p>Current count: <span id="counter">0</span></p>
+            <div class="button-group">
+                <button id="decrementBtn">-</button>
+                <button id="incrementBtn">+</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>To-Do List</h2>
+            <div class="todo-input">
+                <input type="text" id="todoInput" placeholder="Add a new task...">
+                <button id="addTodoBtn">Add</button>
+            </div>
+            <ul id="todoList"></ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
