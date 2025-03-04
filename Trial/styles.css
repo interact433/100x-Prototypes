@@ -8,34 +8,44 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* HERO SECTION */
 .hero {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 380px auto;
+    grid-template-columns: 380px auto; /* Column 1 fixed, Column 2 flexible */
     gap: 32px;
     padding: 32px;
+    align-items: stretch;
 }
 
-.hero-column {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+/* COLUMN 1: FIXED WIDTH + PADDING */
 .text-content {
     background-color: #f4f4f4;
-    padding: 20px;
-    height: auto; /* Will match image-content height */
+    padding: 40px; /* ✅ Horizontal & Vertical Padding */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ✅ Align text to the top */
+    justify-content: flex-start; /* ✅ Align to the top */
 }
 
+/* EYEBROW LABEL */
+.eyebrow {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px; /* ✅ Space between label & header */
+}
+
+/* COLUMN 2: MAINTAIN 1:1 ASPECT RATIO */
 .image-content {
     background-color: #ddd;
-    aspect-ratio: 1 / 1; /* Ensures it maintains square shape */
-    width: 100%; /* Fills remaining space */
+    width: 100%;
+    height: auto; /* JavaScript will adjust height */
 }
 
-/* Responsive Styles */
+/* STACK COLUMNS BELOW 900PX */
 @media (max-width: 900px) {
     .hero {
         display: flex;
@@ -50,6 +60,7 @@ body {
 
     .image-content {
         width: 100%;
+        aspect-ratio: 1 / 1; /* ✅ Keeps it square below 900px */
         height: auto;
     }
 }

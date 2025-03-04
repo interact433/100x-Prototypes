@@ -1,12 +1,17 @@
-// Ensures image-content maintains 1:1 aspect ratio
-window.addEventListener('resize', function () {
+function adjustImageHeight() {
     const imageContent = document.querySelector('.image-content');
+
     if (window.innerWidth > 900) {
+        // Keep aspect ratio by setting height equal to width
         imageContent.style.height = `${imageContent.offsetWidth}px`;
     } else {
-        imageContent.style.height = 'auto';
+        // ✅ Let CSS handle stacking below 900px
+        imageContent.style.height = "auto";
     }
-});
+}
 
-// Trigger resize once on load
-window.dispatchEvent(new Event('resize'));
+// Run function on window resize
+window.addEventListener("resize", adjustImageHeight);
+
+// Trigger once on page load
+window.addEventListener("load", adjustImageHeight);
