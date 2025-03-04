@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 380px auto;
+    gap: 32px;
+    padding: 32px;
+}
+
+.hero-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-content {
+    background-color: #f4f4f4;
+    padding: 20px;
+    height: auto; /* Will match image-content height */
+}
+
+.image-content {
+    background-color: #ddd;
+    aspect-ratio: 1 / 1; /* Ensures it maintains square shape */
+    width: 100%; /* Fills remaining space */
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        width: 100%;
+        height: 380px;
+    }
+
+    .image-content {
+        width: 100%;
+        height: auto;
+    }
+}
