@@ -9,30 +9,36 @@
 <body>
     <div class="app-container">
         <!-- Sidebar with jobs -->
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <h2>Translation Jobs</h2>
+        <div class="sidebar expanded">
+            <div class="sidebar-toggle">
+                <button id="toggle-sidebar">≡</button>
             </div>
-            <div class="jobs-list">
-                <div class="job-item active">
-                    <h3>Website Localization</h3>
-                    <span class="job-meta">23 objects</span>
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <h2>Translation Jobs</h2>
+                    <span class="translation-direction">English → Spanish</span>
                 </div>
-                <div class="job-item">
-                    <h3>Product Descriptions</h3>
-                    <span class="job-meta">17 objects</span>
-                </div>
-                <div class="job-item">
-                    <h3>Marketing Campaign</h3>
-                    <span class="job-meta">12 objects</span>
-                </div>
-                <div class="job-item">
-                    <h3>Documentation</h3>
-                    <span class="job-meta">31 objects</span>
-                </div>
-                <div class="job-item">
-                    <h3>UI Strings</h3>
-                    <span class="job-meta">45 objects</span>
+                <div class="jobs-list">
+                    <div class="job-item active">
+                        <h3>Product Team 1</h3>
+                        <span class="job-meta">23 objects</span>
+                    </div>
+                    <div class="job-item">
+                        <h3>Product Team 2</h3>
+                        <span class="job-meta">17 objects</span>
+                    </div>
+                    <div class="job-item">
+                        <h3>Product Team 3</h3>
+                        <span class="job-meta">12 objects</span>
+                    </div>
+                    <div class="job-item">
+                        <h3>Product Team 4</h3>
+                        <span class="job-meta">31 objects</span>
+                    </div>
+                    <div class="job-item">
+                        <h3>Product Team 5</h3>
+                        <span class="job-meta">45 objects</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,55 +50,70 @@
             </div>
             <div class="content-list">
                 <!-- Content objects (collapsed by default) -->
-                <div class="content-object collapsed">
+                <div class="content-object collapsed" data-type="body-only">
                     <div class="object-header">
-                        <h3>Homepage Header</h3>
-                        <span class="object-meta">English → Spanish</span>
-                        <button class="expand-btn">Expand</button>
+                        <h3>Content Object 1</h3>
+                        <div class="object-meta">
+                            <span class="segment-count">4 segments</span>
+                            <span class="status pending">Pending</span>
+                            <button class="expand-btn">Expand</button>
+                        </div>
                     </div>
                     <div class="object-content">
                         <!-- Expanded content will appear here -->
                     </div>
                 </div>
                 
-                <div class="content-object collapsed">
+                <div class="content-object collapsed" data-type="header-statement-body">
                     <div class="object-header">
-                        <h3>Navigation Menu</h3>
-                        <span class="object-meta">English → Spanish</span>
-                        <button class="expand-btn">Expand</button>
+                        <h3>Content Object 2</h3>
+                        <div class="object-meta">
+                            <span class="segment-count">7 segments</span>
+                            <span class="status in-progress">In Progress</span>
+                            <button class="expand-btn">Expand</button>
+                        </div>
                     </div>
                     <div class="object-content">
                         <!-- Expanded content will appear here -->
                     </div>
                 </div>
                 
-                <div class="content-object collapsed">
+                <div class="content-object collapsed" data-type="body-only">
                     <div class="object-header">
-                        <h3>Footer Content</h3>
-                        <span class="object-meta">English → Spanish</span>
-                        <button class="expand-btn">Expand</button>
+                        <h3>Content Object 3</h3>
+                        <div class="object-meta">
+                            <span class="segment-count">3 segments</span>
+                            <span class="status done">Done</span>
+                            <button class="expand-btn">Expand</button>
+                        </div>
                     </div>
                     <div class="object-content">
                         <!-- Expanded content will appear here -->
                     </div>
                 </div>
                 
-                <div class="content-object collapsed">
+                <div class="content-object collapsed" data-type="header-statement-body">
                     <div class="object-header">
-                        <h3>About Us Page</h3>
-                        <span class="object-meta">English → Spanish</span>
-                        <button class="expand-btn">Expand</button>
+                        <h3>Content Object 4</h3>
+                        <div class="object-meta">
+                            <span class="segment-count">8 segments</span>
+                            <span class="status pending">Pending</span>
+                            <button class="expand-btn">Expand</button>
+                        </div>
                     </div>
                     <div class="object-content">
                         <!-- Expanded content will appear here -->
                     </div>
                 </div>
                 
-                <div class="content-object collapsed">
+                <div class="content-object collapsed" data-type="body-only">
                     <div class="object-header">
-                        <h3>Product Features</h3>
-                        <span class="object-meta">English → Spanish</span>
-                        <button class="expand-btn">Expand</button>
+                        <h3>Content Object 5</h3>
+                        <div class="object-meta">
+                            <span class="segment-count">5 segments</span>
+                            <span class="status in-progress">In Progress</span>
+                            <button class="expand-btn">Expand</button>
+                        </div>
                     </div>
                     <div class="object-content">
                         <!-- Expanded content will appear here -->
