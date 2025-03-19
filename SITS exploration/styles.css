@@ -121,6 +121,7 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .content-header {
@@ -140,6 +141,7 @@ body {
 
 .content-list {
     padding: 20px;
+    position: relative;
 }
 
 /* Content object styles */
@@ -149,6 +151,14 @@ body {
     margin-bottom: 20px;
     background-color: #ffffff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+}
+
+/* Highlight for expanded content objects */
+.content-object:not(.collapsed) {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .object-header {
@@ -156,18 +166,38 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: background-color 0.3s ease;
+    min-height: 80px;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: #ffffff;
 }
 
-.object-header h3 {
-    font-size: 16px;
-    font-weight: 500;
+.object-header:hover {
+    background-color: #f8f9fa;
+}
+
+.content-object:not(.collapsed) .object-header {
+    background-color: #ebf8ff;
+}
+
+.content-object:not(.collapsed) .object-header:hover {
+    background-color: #e1effe;
+}
+
+.object-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     flex: 1;
 }
 
-.object-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.object-title h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
 }
 
 .segment-count {
@@ -175,10 +205,20 @@ body {
     color: #666;
 }
 
+.object-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 200px;
+    justify-content: center;
+}
+
 .status {
     font-size: 14px;
-    padding: 4px 8px;
+    padding: 4px 12px;
     border-radius: 4px;
+    text-align: center;
+    min-width: 100px;
 }
 
 .status.pending {
@@ -197,17 +237,34 @@ body {
 }
 
 .expand-btn {
-    background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 6px 12px;
+    background: #f5f5f5;
+    border: none;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #666;
+    transition: transform 0.3s ease, color 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    position: relative;
+    z-index: 1;
 }
 
 .expand-btn:hover {
+    color: #333;
     background-color: #e9e9e9;
+}
+
+.content-object.collapsed .expand-btn {
+    transform: rotate(0deg);
+}
+
+.content-object:not(.collapsed) .expand-btn {
+    transform: rotate(180deg);
 }
 
 /* Hide content in collapsed state */
@@ -226,6 +283,14 @@ body {
     border-collapse: separate;
     border-spacing: 0 12px;
     margin-bottom: 16px;
+    position: relative;
+}
+
+.segments-table thead {
+    position: sticky;
+    top: 80px; /* Height of the object header */
+    z-index: 10;
+    background-color: #ffffff;
 }
 
 .segments-table th {
@@ -234,27 +299,50 @@ body {
     font-weight: 500;
     color: #666;
     border-bottom: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+/* Add a subtle shadow to indicate sticky headers */
+.segments-table thead::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
+    pointer-events: none;
 }
 
 .segments-table td {
     padding: 16px;
     vertical-align: top;
-    background-color: #f9f9f9;
+    background-color: #f5f5f5;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
 }
 
 .segments-table td:first-child {
     border-left: 1px solid #e0e0e0;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-    width: 15%;
+    width: 12%;
+}
+
+.segments-table td:nth-child(2) {
+    width: 38%;
 }
 
 .segments-table td:last-child {
     border-right: 1px solid #e0e0e0;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    width: 50%;
+}
+
+.segments-table tr.active td {
+    background-color: #e9f2fd;
 }
 
 .segment-type {

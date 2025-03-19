@@ -32,22 +32,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle content object expansion/collapse
     expandButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const contentObject = this.closest('.content-object');
+        const contentObject = button.closest('.content-object');
+        const header = contentObject.querySelector('.object-header');
+        
+        // Add click handler to the entire header
+        header.addEventListener('click', function(e) {
+            // Don't trigger if clicking the chevron button itself
+            if (e.target === button) return;
             
             // Toggle collapsed class
             contentObject.classList.toggle('collapsed');
             
-            // Change button text based on state
             if (contentObject.classList.contains('collapsed')) {
-                this.textContent = 'Expand';
                 // Expand sidebar if it was collapsed
                 if (sidebar.classList.contains('collapsed')) {
                     sidebar.classList.remove('collapsed');
                     sidebar.classList.add('expanded');
                 }
             } else {
-                this.textContent = 'Collapse';
                 // Collapse sidebar when expanding content
                 sidebar.classList.remove('expanded');
                 sidebar.classList.add('collapsed');
@@ -144,6 +146,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Expand sidebar
                         sidebar.classList.remove('collapsed');
                         sidebar.classList.add('expanded');
+                    });
+                    
+                    // Add event listeners to textareas to highlight active row
+                    const textareas = contentSection.querySelectorAll('.translation-textarea');
+                    textareas.forEach(textarea => {
+                        textarea.addEventListener('focus', function() {
+                            // Remove active class from all rows
+                            const allRows = contentSection.querySelectorAll('.segments-table tr');
+                            allRows.forEach(row => row.classList.remove('active'));
+                            
+                            // Add active class to the parent row
+                            const parentRow = this.closest('tr');
+                            parentRow.classList.add('active');
+                        });
                     });
                 }
             }
