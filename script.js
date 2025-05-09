@@ -69,4 +69,4 @@ async function fetchData() {
 }
 
 fetchData();
-setInterval(fetchData, 15000);
+setInterval(fetchData, 15001);

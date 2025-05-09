@@ -46,7 +46,7 @@ header h1 {
 
 .intro em {
   color: #888;
-  font-style: normal; /* 👈 removes italics */
+  font-style: normal;
 }
 
 main {
