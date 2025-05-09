@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interview Tracker Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Interview Tracker Demo</h1>
+    <div class="intro">
+      <p><strong>🚨 Problem:</strong><br>
+      When applying for jobs, one may have to track and manage multiple job interviews which can be manual and time consuming.</p>
+
+      <p><strong>✨ Solution:</strong><br>
+      A chatbot where you log upcoming interviews, updates and use it to summarize or ask upcoming interviews.</p>
+
+      <p><strong>👨‍🔬 Prototype:</strong><br>
+      • Use natural language to log upcoming interview (only one at a time)<br>
+      • Use natural language to update details of an interview (only one attribute at a time)<br>
+      • Use natural language to ask details about the upcoming interview <em>(not available yet)</em></p>
+
+      <p><em>Chatbot is not very smart yet... be kind 😄</em></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="data-view">
+      <h2>Application Log</h2>
+      <div id="records">Loading data...</div>
+    </section>
+  </main>
+
+  <!-- Voiceflow Chatbot Script -->
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.voiceflow.chat.load({
+            verify: { projectID: '6817293dea85fe5d479fff14' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            }
+          });
+        }
+        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+        v.type = "text/javascript"; 
+        s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
